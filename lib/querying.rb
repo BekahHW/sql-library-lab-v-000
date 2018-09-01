@@ -11,8 +11,7 @@ end
 
 def select_value_and_count_of_most_prolific_species
   "SELECT species
-   COUNT(species) 
-   AS value_occurrence
+   COUNT(species) AS value_occurrence
    FROM characters 
    GROUP BY species
    ORDER BY value_occurrence DESC
