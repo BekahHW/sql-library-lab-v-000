@@ -10,9 +10,13 @@ def select_name_and_motto_of_char_with_longest_motto
 end
 
 def select_value_and_count_of_most_prolific_species
-  "SELECT species, SUM(species) 
+  "SELECT species
+  COUNT(species) 
+  AS value_occurrence
   FROM characters 
-  WHERE "
+ GROUP BY species
+ ORDER BY value_occurrence DESC
+ LIMIT 1"
 end
 
 def select_name_and_series_subgenres_of_authors
