@@ -3,9 +3,10 @@ def select_books_titles_and_years_in_first_series_order_by_year
 end
 
 def select_name_and_motto_of_char_with_longest_motto
-  "SET @MaxMottoLen = (SELECT MAX(MOTTO_LENGTH(motto)) FROM characters);
-
-  SELECT characters.name, characters.motto, motto_length(characters.motto) FROM characters ORDER BY motto_length(motto) DESC, motto LIMIT 1"
+  "SELECT name, motto, 
+  FROM characters 
+  ORDER BY LENGTH(motto) DESC 
+  LIMIT 1"
 end
 
 # SELECT city, char_length(city) FROM station ORDER BY char_length(city) DESC, city LIMIT 1
