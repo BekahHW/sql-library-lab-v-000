@@ -29,10 +29,14 @@ end
 
 def select_series_title_with_most_human_characters
   "SELECT series.title 
+     COUNT(series.title) AS value_occurrence
   FROM series
   JOIN characters
   ON series.id = characters.series_id
-  WHERE characters.species = 'human'"
+  WHERE characters.species = 'human'
+  GROUP BY series.title
+  ORDER BY value_occurrence DESC
+   LIMIT 1"
   
 end
 
